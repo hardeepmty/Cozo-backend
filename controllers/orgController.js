@@ -182,7 +182,7 @@ exports.inviteUser = async (req, res) => {
 
                 // Email content for the current user
                 const mailOptions = {
-                    from: `"Jira Clone" <${process.env.EMAIL_FROM || 'rajdeveloper4444@gmail.com'}>`,
+                    from: `"Cozo" <${process.env.EMAIL_FROM || 'rajdeveloper4444@gmail.com'}>`,
                     to: email,
                     subject: `Invitation to join ${org.name}`,
                     html: `
@@ -197,14 +197,14 @@ exports.inviteUser = async (req, res) => {
 
                             <p>To accept this invitation:</p>
                             <ol>
-                                <li>Log in to your Jira Clone account</li>
-                                <li>Go to "Organizations"</li>
+                                <li>Log in to your Cozoo account</li>
+                                <li>Go to "Dashboard"</li>
                                 <li>Click "Join Organization"</li>
                                 <li>Enter the join code above</li>
                             </ol>
 
                             <p style="margin-top: 24px;">Happy collaborating!</p>
-                            <p>The Jira Clone Team</p>
+                            <p>The Cozo Team</p>
                         </div>
                     `
                 };
