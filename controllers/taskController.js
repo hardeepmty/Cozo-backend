@@ -30,17 +30,28 @@ exports.createTask = async (req, res) => {
       });
     }
 
-    const task = await Task.create({
+    // Prepare task data
+    const taskData = {
       title,
       description,
       priority,
       dueDate,
-      assignedTo,
-      assignedTeam,
       project,
       organization: proj.organization,
       createdBy: req.user._id
-    });
+    };
+
+    // Only add assignedTo if it has a value
+    if (assignedTo) {
+      taskData.assignedTo = assignedTo;
+    }
+
+    // Only add assignedTeam if it has a value
+    if (assignedTeam) {
+      taskData.assignedTeam = assignedTeam;
+    }
+
+    const task = await Task.create(taskData);
 
     res.status(201).json({ success: true, data: task });
   } catch (err) {
